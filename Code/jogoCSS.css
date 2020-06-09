@@ -1,0 +1,52 @@
+#frame{
+    width: 400px;
+    height: 600px;
+    background-color: darkgrey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#tela{
+    background-color: black;
+    width: 400px;
+    height: 400px;
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.campo{
+    font-size: 30px;
+    background-color: grey;
+    width: 65px;
+    height: 65px;
+}
+
+.numero{
+    background-color: black;
+    border: 2px solid red;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.numero2{
+    background-color: black;
+    border: 2px solid red;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.player1{
+    background-color: red;
+}
+
+.player2{
+    background-color: blue;
+}
