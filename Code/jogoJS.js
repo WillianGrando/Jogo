@@ -1,6 +1,6 @@
     var num1=0, num2=0, player=0;
 function teste() {
-//função seletor de numero
+//todo - seletor de numero mais bonito
 
 //função calculo para posição
     num1 = document.getElementById('num1').value;
@@ -18,6 +18,6 @@ function teste() {
         player++;
     }
 
-//função vitoria
+//todo - função vitoria
 
 }
