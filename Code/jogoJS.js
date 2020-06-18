@@ -38,11 +38,8 @@ function teste() {
         ["54", "56", "63", "64", "72", "81"],
         ];    
     for (contx = 0; contx < 6; contx++) {
-        console.log("testandoX");//apagar quando terminar
         for (conty = 0; conty < 6; conty++) {
-            console.log("testandoY");//apagar quando terminar
             if (tela[contx][conty] == posicao) {
-                console.log("X = "+contx+" Y = "+conty);//apagar quando terminar
                 if (player % 2 == 0){//informação "invertida" por causa do player++ anterior
                     jogadas[contx][conty] = 'B';
                 }else{
@@ -58,30 +55,31 @@ function teste() {
 function condicaoVitoria() {
     //vitoria vermelha
     var vitoria = 0;
-    for (contx = 0; contx <= 6; contx++) {
-        for (conty = 0; conty <= 6; conty++) {
-            if (jogadas[contx][conty] == 'R') {
-                vitoria++;
-                if (vitoria == 4) {
-                    alert("VERMELHO GANHOU!");
-                }
-            }else {
-                vitoria=0;
+    testex = contx - 3;
+    testey = conty - 3;
+    
+    console.log("iniciando 1 loop");
+    for (testex; testex <= 7 ; testex++) {
+        if (jogadas[testex][conty] == 'R') {
+            vitoria++;
+            if (vitoria == 4) {
+                alert("VERMELHO GANHOU!");
             }
+        }else {
+            console.log("loop1 "+vitoria);
+            vitoria=0;
         }
     }
-    //vitoria azul
-    var vitoria = 0;
-    for (contx = 0; contx <= 6; contx++) {
-        for (conty = 0; conty <= 6; conty++) {
-            if (jogadas[contx][conty] == 'B') {
-                vitoria++;
-                if (vitoria == 4) {
-                    alert("AZUL GANHOU!");
-                }
-            }else {
-                vitoria=0;
+    console.log("iniciando 2 loop");
+    for (testey; testey <= 7; testey++) {
+        if (jogadas[contx][testey] == 'R') {
+            vitoria++;
+            if (vitoria == 4) {
+                alert("VERMELHO GANHOU!");
             }
+        }else {
+            console.log("loop2 "+vitoria);
+            vitoria=0;
         }
     }
 }
