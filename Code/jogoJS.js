@@ -70,10 +70,36 @@ function condicaoVitoria() {
             }
         }
     }
+    var vitoria = 0;//função pra vitoria na vertial (nao funcionando, loop2 não inicia)
+    for (conty = 0; conty <= 6; conty++) {
+        for (contx = 0; contx <= 6; contx++) {
+            if (jogadas[contx][conty] == 'R') {
+                vitoria++;
+                if (vitoria == 4) {
+                    alert("VERMELHO GANHOU!");
+                }
+            }else {
+                vitoria=0;
+            }
+        }
+    }
     //vitoria azul
     var vitoria = 0;
     for (contx = 0; contx <= 6; contx++) {
         for (conty = 0; conty <= 6; conty++) {
+            if (jogadas[contx][conty] == 'B') {
+                vitoria++;
+                if (vitoria == 4) {
+                    alert("AZUL GANHOU!");
+                }
+            }else {
+                vitoria=0;
+            }
+        }
+    }
+    var vitoria = 0;//função pra vitoria na vertial (nao funcionando, loop2 não inicia)
+    for (conty = 0; conty <= 6; conty++) {
+        for (contx = 0; contx <= 6; contx++) {
             if (jogadas[contx][conty] == 'B') {
                 vitoria++;
                 if (vitoria == 4) {
