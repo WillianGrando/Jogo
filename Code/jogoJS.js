@@ -52,6 +52,10 @@ function teste() {
             }
         }
     }
+
+}
+
+function condicaoVitoria() {
     //vitoria vermelha
     var vitoria = 0;
     for (contx = 0; contx <= 6; contx++) {
@@ -80,5 +84,4 @@ function teste() {
             }
         }
     }
-
 }
