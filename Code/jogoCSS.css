@@ -24,6 +24,18 @@
     font-size: 50px;
 }
 
+input{
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    text-align: center;
+}
+
+button{
+    width: 50px;
+    height: 50px;
+}
+/*
 .numero{
     background-color: black;
     border: 2px solid red;
@@ -43,14 +55,4 @@
     border-radius: 50%;
     align-self: center;
 }
-
-input{
-    width: 50px;
-    height: 50px;
-    font-size: 50px;
-    text-align: center;
-}
-button{
-    width: 50px;
-    height: 50px;
-}
+*/
