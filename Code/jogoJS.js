@@ -11,7 +11,7 @@
 function teste() {
     //todo - seletor de numero mais bonito
 
-    //função calculo para posição
+    //calculo para os numeros jogados
     var num1 = document.getElementById('num1').value;
     num1 = Number(num1);
     var num2 = document.getElementById('num2').value;
@@ -19,7 +19,7 @@ function teste() {
     var posicao = num1 * num2;
 
     //função cores do player
-    if (document.getElementById(posicao).style.backgroundColor == '') {//verificar cores
+    if (document.getElementById(posicao).style.backgroundColor == '') {//troca a cor na posição jogada
         if (player % 2 == 0) {
         document.getElementById(posicao).style.backgroundColor = 'red';
         }else {
@@ -28,8 +28,8 @@ function teste() {
         player++;
     }
 
-    //totest - função vitoria "analisar as 8 direções (nos 4 sentidos) a partir da ultima peça jogada." (apenas horizontal)
-    var tela = [
+    //totest - função vitoria "analisar as 8 direções (nos 4 sentidos) a partir da ultima peça jogada."(horizontal e vertical * falta diagonais)
+    var tela = [//variavel para o progama "ler" a tela
         [ "1",  "2",  "3",  "4",  "5",  "6"],
         [ "7",  "8", " 9", "10", "12", "14"],
         ["15", "16", "18", "20", "21", "24"],
@@ -37,13 +37,10 @@ function teste() {
         ["36", "40", "42", "45", "48", "49"],
         ["54", "56", "63", "64", "72", "81"],
         ];    
-    for (contx = 0; contx < 6; contx++) {
-        console.log("testandoX");//apagar quando terminar
+    for (contx = 0; contx < 6; contx++) {//loop para ler a jogada e o jogador
         for (conty = 0; conty < 6; conty++) {
-            console.log("testandoY");//apagar quando terminar
             if (tela[contx][conty] == posicao) {
-                console.log("X = "+contx+" Y = "+conty);//apagar quando terminar
-                if (player % 2 == 0){//informação "invertida" por causa do player++ anterior
+                if (player % 2 == 0){
                     jogadas[contx][conty] = 'B';
                 }else{
                     jogadas[contx][conty] = 'R';
@@ -56,10 +53,9 @@ function teste() {
 }
 
 function condicaoVitoria() {
-    //vitoria vermelha
-    var vitoria = 0;
-    for (contx = 0; contx <= 6; contx++) {
-        for (conty = 0; conty <= 6; conty++) {
+    var vitoria = 0;//função pra vitorias na horizontal
+    for (contx = 0; contx < 6; contx++) {
+        for (conty = 0; conty < 6; conty++) {
             if (jogadas[contx][conty] == 'R') {
                 vitoria++;
                 if (vitoria == 4) {
@@ -69,10 +65,26 @@ function condicaoVitoria() {
                 vitoria=0;
             }
         }
+        console.log("testando loop1!");
     }
-    var vitoria = 0;//função pra vitoria na vertial (nao funcionando, loop2 não inicia)
-    for (conty = 0; conty <= 6; conty++) {
-        for (contx = 0; contx <= 6; contx++) {
+    var vitoria = 0;
+    for (contx = 0; contx < 6; contx++) {
+        for (conty = 0; conty < 6; conty++) {
+            if (jogadas[contx][conty] == 'B') {
+                vitoria++;
+                if (vitoria == 4) {
+                    alert("AZUL GANHOU!");
+                }
+            }else {
+                vitoria=0;
+            }
+        }
+        console.log("testando loop3!");
+    }
+
+    var vitoria = 0;//função pra vitorias na vertial
+    for (conty = 0; conty < 6; conty++) {
+        for (contx = 0; contx < 6; contx++) {
             if (jogadas[contx][conty] == 'R') {
                 vitoria++;
                 if (vitoria == 4) {
@@ -82,11 +94,11 @@ function condicaoVitoria() {
                 vitoria=0;
             }
         }
+        console.log("testando loop2!");
     }
-    //vitoria azul
     var vitoria = 0;
-    for (contx = 0; contx <= 6; contx++) {
-        for (conty = 0; conty <= 6; conty++) {
+    for (conty = 0; conty < 6; conty++) {
+        for (contx = 0; contx < 6; contx++) {
             if (jogadas[contx][conty] == 'B') {
                 vitoria++;
                 if (vitoria == 4) {
@@ -97,17 +109,5 @@ function condicaoVitoria() {
             }
         }
     }
-    var vitoria = 0;//função pra vitoria na vertial (nao funcionando, loop2 não inicia)
-    for (conty = 0; conty <= 6; conty++) {
-        for (contx = 0; contx <= 6; contx++) {
-            if (jogadas[contx][conty] == 'B') {
-                vitoria++;
-                if (vitoria == 4) {
-                    alert("AZUL GANHOU!");
-                }
-            }else {
-                vitoria=0;
-            }
-        }
-    }
+    console.log("testando loop4!");
 }
