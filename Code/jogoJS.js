@@ -1,5 +1,5 @@
-    var player = 0;
-    var jogadas = [
+var player = 0, jogadaX, jogadaY;
+var jogadas = [
         ["", "", "", "", "", ""],
         ["", "", "", "", "", ""],
         ["", "", "", "", "", ""],
@@ -7,16 +7,16 @@
         ["", "", "", "", "", ""],
         ["", "", "", "", "", ""],
         ];
-    var contx, conty;
+let posiX, posiY;
 function teste() {
     //todo - seletor de numero mais bonito
 
     //calculo para os numeros jogados
-    var num1 = document.getElementById('num1').value;
+    let num1 = document.getElementById('num1').value;
     num1 = Number(num1);
-    var num2 = document.getElementById('num2').value;
+    let num2 = document.getElementById('num2').value;
     num2 = Number(num2);
-    var posicao = num1 * num2;
+    let posicao = num1 * num2;
 
     //função cores do player
     if (document.getElementById(posicao).style.backgroundColor == '') {//troca a cor na posição jogada
@@ -37,13 +37,13 @@ function teste() {
         ["36", "40", "42", "45", "48", "49"],
         ["54", "56", "63", "64", "72", "81"],
         ];    
-    for (contx = 0; contx < 6; contx++) {//loop para ler a jogada e o jogador
-        for (conty = 0; conty < 6; conty++) {
-            if (tela[contx][conty] == posicao) {
+    for (posiX = 0; posiX < 6; posiX++) {//loop para ler a jogada e o jogador
+        for (posiY = 0; posiY < 6; posiY++) {
+            if (tela[posiX][posiY] == posicao) {  
                 if (player % 2 == 0){
-                    jogadas[contx][conty] = 'B';
+                    jogadas[posiX][posiY] = 'B';
                 }else{
-                    jogadas[contx][conty] = 'R';
+                    jogadas[posiX][posiY] = 'R';
                 }
                 return true;
             }
@@ -53,61 +53,51 @@ function teste() {
 }
 
 function condicaoVitoria() {
-    var vitoria = 0;//função pra vitorias na horizontal
-    for (contx = 0; contx < 6; contx++) {
-        for (conty = 0; conty < 6; conty++) {
-            if (jogadas[contx][conty] == 'R') {
-                vitoria++;
-                if (vitoria == 4) {
-                    alert("VERMELHO GANHOU!");
-                }
-            }else {
-                vitoria=0;
-            }
-        }
-        console.log("testando loop1!");
-    }
+//função pra vitorias na vertical
     var vitoria = 0;
-    for (contx = 0; contx < 6; contx++) {
-        for (conty = 0; conty < 6; conty++) {
-            if (jogadas[contx][conty] == 'B') {
-                vitoria++;
-                if (vitoria == 4) {
-                    alert("AZUL GANHOU!");
-                }
-            }else {
-                vitoria=0;
+console.log("testado vertical Vermelho");
+    for (var jogodaX = 0; jogodaX < 6; jogodaX++) {//vertical
+        if (jogadas[jogodaX][posiY] == 'R') {
+            vitoria++;
+            if (vitoria == 4) {
+                alert("VERMELHO GANHOU!");
             }
-        }
-        console.log("testando loop3!");
-    }
+        }else{vitoria = 0;}
+    }vitoria = 0;
+console.log("testado horizontal vermelho");
 
-    var vitoria = 0;//função pra vitorias na vertial
-    for (conty = 0; conty < 6; conty++) {
-        for (contx = 0; contx < 6; contx++) {
-            if (jogadas[contx][conty] == 'R') {
-                vitoria++;
-                if (vitoria == 4) {
-                    alert("VERMELHO GANHOU!");
-                }
-            }else {
-                vitoria=0;
+    for (var jogadaY = 0; jogadaY < 6; jogadaY++) {//horizontal
+        if (jogadas[posiX][jogadaY] == 'R') {
+            vitoria++;
+            if (vitoria == 4) {
+                alert("VERMELHO GANHOU!");
             }
-        }
-        console.log("testando loop2!");
-    }
-    var vitoria = 0;
-    for (conty = 0; conty < 6; conty++) {
-        for (contx = 0; contx < 6; contx++) {
-            if (jogadas[contx][conty] == 'B') {
-                vitoria++;
-                if (vitoria == 4) {
-                    alert("AZUL GANHOU!");
-                }
-            }else {
-                vitoria=0;
+        }else{vitoria = 0;}
+    }vitoria = 0;
+console.log("testado vertical azul");
+
+    for (var jogodaX = 0; jogodaX < 6; jogodaX++) {//vertical
+        if (jogadas[jogodaX][posiY] == 'B') {
+            vitoria++;
+            if (vitoria == 4) {
+                alert("AZUL GANHOU!");
             }
+        }else{vitoria = 0;}
+    }vitoria = 0;
+console.log("testado horizontal azul");
+
+    for (var jogadaY = 0; jogadaY < 6; jogadaY++) {//horizontal
+        if (jogadas[posiX][jogadaY] == 'B') {
+            vitoria++;
+            if (vitoria == 4) {
+                alert("AZUL GANHOU!");
+            }
+        }else{vitoria = 0;}
+    }vitoria = 0;
+
+    /*for (posiX = 0; posiX < 6; posiX++) {
+        for (posiY = 0; posiY < 6; posiY++) {
+            console.log(jogadas[posiX][posiY])
         }
-    }
-    console.log("testando loop4!");
+    }*/
 }
