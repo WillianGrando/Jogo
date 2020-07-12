@@ -28,14 +28,14 @@ var tela = [
     ];
 
 function jogada() {
-    //calculo para os numeros jogados
+//calculo para os numeros jogados
     let num1 = document.getElementById('num1').value;
     num1 = Number(num1);
     let num2 = document.getElementById('num2').value;
     num2 = Number(num2);
     let posicao = num1 * num2;
 
-    //função cores do player
+//função cores do player
     if (document.getElementById(posicao).style.backgroundColor == '') {//troca a cor na posição jogada
         if (player % 2 == 0) {
             document.getElementById(posicao).style.backgroundColor = 'red';
@@ -45,7 +45,7 @@ function jogada() {
         player++;
     }
     
-    //loop para ler a jogada e o jogador
+//loop para ler a jogada e o jogador
     for (posiX = 0; posiX < 6; posiX++) {
         for (posiY = 0; posiY < 6; posiY++) {
             if (tela[posiX][posiY] == posicao) {  
@@ -61,59 +61,59 @@ function jogada() {
 }
 
 function condicaoVitoria() {
-    //função pra vitorias na vertical
+//função pra vitorias na vertical
     var vitoria = 0;
-    console.log("testado vertical Vermelho");
+    //console.log("testado vertical Vermelho");
     for (var jogodaX = 0; jogodaX < 6; jogodaX++) {//vertical
         if (jogadas[jogodaX][posiY] == 'R') {
             vitoria++;
             if (vitoria == 4) {
                 alert("VERMELHO GANHOU!");
+                document.location.reload(true);
             }
         }else {
             vitoria = 0;
         }
     }
-    vitoria = 0;
 
-    console.log("testado horizontal vermelho");
+    //console.log("testado horizontal vermelho");
     for (var jogadaY = 0; jogadaY < 6; jogadaY++) {//horizontal
         if (jogadas[posiX][jogadaY] == 'R') {
             vitoria++;
             if (vitoria == 4) {
                 alert("VERMELHO GANHOU!");
+                document.location.reload(true);
             }
         }else {
             vitoria = 0;
         }
     }
-    vitoria = 0;
 
-    console.log("testado vertical azul");
+    //console.log("testado vertical azul");
     for (var jogodaX = 0; jogodaX < 6; jogodaX++) {//vertical
         if (jogadas[jogodaX][posiY] == 'B') {
             vitoria++;
             if (vitoria == 4) {
                 alert("AZUL GANHOU!");
+                document.location.reload(true);
             }
         }else {
             vitoria = 0;
         }
     }
-    vitoria = 0;
 
-    console.log("testado horizontal azul");
+    //console.log("testado horizontal azul");
     for (var jogadaY = 0; jogadaY < 6; jogadaY++) {//horizontal
         if (jogadas[posiX][jogadaY] == 'B') {
             vitoria++;
             if (vitoria == 4) {
                 alert("AZUL GANHOU!");
+                document.location.reload(true);
             }
         }else {
             vitoria = 0;
         }
     }
-    vitoria = 0;
 
     /*//printa no console o array das jogadas - historico de jogadas - debugger
     for (posiX = 0; posiX < 6; posiX++) {
@@ -121,9 +121,4 @@ function condicaoVitoria() {
             console.log(jogadas[posiX][posiY])
         }
     }*/
-}
-
-function telaInicial() {
-
-    
 }
